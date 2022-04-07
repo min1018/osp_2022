@@ -1,33 +1,36 @@
 #!/bin/bash
 
+
 menu=$1
-if[ -z "$menu"]; then #string length 0, returns true
+declare -a num
+num=('cat num1.txt' 'cat num2.txt')
+
+echo "progect management in github"
+
+if[ -z "$menu"]
+then #string length 0, returns true
 	echo "...none operator parameter..."
-	select menu in "add" "sub" "div" "mul"
-do
- echo "...$menu selected..."
- break
-done
+	echo "1)add"
+	echo "2)sub"
+	echo "3)div"
+	echo "4)mul"
+	read -p"select menu:"reply
+	menu="$reply"
 fi
 
-num1=$(<num1.txt) #file contents into variable
-num2=$(<num2.txt)
 case $menu in
- add)	let result=$num1+$num2;;
- sub)	let result=$num1-$num2;;
- div)	let result=$num1/$num2;;
- mul)	let result=$num1*$num2;;
- *) echo "error"; exit1;;
+ 1)op="add"
+  result='expr ${num[0]}+${num[1]}';;
+ 2)op="sub"
+  result='expr ${num[0]}-${num[1]}';;
+ 1)op="div"
+  result='expr ${num[0]}/${num[1]}';;
+ 1)op="mul"
+  result='expr ${num[0]}\*${num[1]}';;
 esac
 
-echo"num1 : " $num1
-echo"num2 : " $num2
-case $menu in
- add) echo "op : " $menu;;
- sub) echo "op : " $menu;;
- div) echo "op : " $menu;;
- mul) echo "op : " $menu;;
- *) echo "error"; exit1;;
-esac
-echo "result : "$result
+echo"txt1:${num[0]}"
+echo"num2:${num[1]}"
+echo"op:$op"
+echo"result:$result"
 
