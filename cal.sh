@@ -12,16 +12,19 @@ fi
 
 num1=$(<num1.txt) #file contents into variable
 num2=$(<num2.txt)
+
+declare -a arr = ("$num1""$num2")
+
 case $menu in
- add)	let result=$num1+$num2;;
- sub)	let result=$num1-$num2;;
- div)	let result=$num1/$num2;;
- mul)	let result=$num1*$num2;;
+ add)	let result="${arr[0]}"+"${arr[1]};;
+ sub)	let result="${arr[0]}"-"${arr[1]}";;
+ div)	let result="${arr[0]}"/"${arr[1]}";;
+ mul)	let result="${arr[0]}"*"${arr[1]}";;
  *) echo "error"; exit1;;
 esac
 
-echo"num1 : " $num1
-echo"num2 : " $num2
+echo"num1 : " ${arr[0]}
+echo"num2 : " ${arr[1]}
 case $menu in
  add) echo "op : " $menu;;
  sub) echo "op : " $menu;;
