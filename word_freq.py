@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 import sys
+import re
 
 fname = sys.argv[1]
 num = int(sys.argv[2])
@@ -13,11 +14,14 @@ word_cnt = dict()
 while True:
 	l = file.readline()
 	if not l: break
+	
+	line = re.sub('[-=+,#/\?:^.@*\"※~ㆍ!』‘|\(\)\[\]`\'…》\”\“\’·\n\t]', ' ', l)
 	for word in line.split():
 		if word in word_cnt:
 			word_cnt[word] += 1
 		else:
 			word_cnt[word] = 1
+	
 
 	
 file.close()
