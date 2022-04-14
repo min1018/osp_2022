@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 import sys
-import re
 
 fname = sys.argv[1]
 num = int(sys.argv[2])
