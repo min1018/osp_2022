@@ -9,5 +9,15 @@ if len(sys.argv) != 3:
 	sys.exit()
 
 file = open(fname, 'r')
+word_cnt = dict()
+while True:
+	l = file.readline()
+	if not l: break
+	for word in line.split():
+		if word in word_cnt:
+			word_cnt[word] += 1
+		else:
+			word_cnt[word] = 1
 
-file.close
+	
+file.close()
