@@ -25,7 +25,7 @@ while True:
 
 # 정렬
 sorted_dic = sorted(word_cnt.items(), key=lambda x: x[0], reverse=True)
-for r in range(0, num):
+for r in range(num):
 	print("{:<10}{:>10}".format(word_cnt[r][0], word_cnt[r][1]))
 
 file.close()
