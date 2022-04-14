@@ -21,7 +21,11 @@ while True:
 			word_cnt[word] += 1
 		else:
 			word_cnt[word] = 1
-	
+
+#정렬
+
+for r in range(0, num):
+	print("{:<10}{:>10}".format(word_cnt[r][0], word_cnt[r][1]))
 
 	
 file.close()
